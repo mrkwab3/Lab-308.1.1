@@ -65,7 +65,7 @@ console.log(`The four numbers meet the criteria: ${arithmeticChain}`)
 let isUnder25 = n1 <= 25 || n2 <= 25 || n3 <= 25 || n4 <= 25;
 isOver25 = !isUnder25
 
-// Part 2:
+// Part 2: Practical Math
 const distance = 1500
 const budget = 175
 const avgFuelCost = 3
@@ -111,6 +111,38 @@ let mpg;
     It is ${enoughBudget} that I have enough of a budget for this trip.
     This trip will take ${tripTime} hours to complete.`)
   }
-// Part 3:
+// Part 3: Control Flow (Seeing as this isn't mandatory, I'm exploring this of my own volition)
 
-// Part 4:
+/* 
+Lets take scenario 3 with 75 mph where there was not a sufficient budget.
+I will configure an if statement that will reduce the mph by 5 and increase the mpg by 2 
+if there isn't a sufficient budget.
+*/
+
+  // 75 mph
+  {
+    mph = 75
+    mpg = 23
+    let gallonsNeeded = distance / mpg
+    let enoughBudget = (gallonsNeeded * 3) < budget
+    let tripTime = distance / mph
+    while (!enoughBudget) {
+      mph -= 5
+      mpg += 2
+      gallonsNeeded = distance / mpg
+      enoughBudget = (gallonsNeeded * 3) < budget
+      tripTime = distance / mph
+    }
+    // if (!enoughBudget) { // A for/while loop would work much better here
+    //   mph -= 5
+    //   mpg += 2
+    //   gallonsNeeded = distance / mpg
+    //   enoughBudget = (gallonsNeeded * 3) < budget
+    //   tripTime = distance / mph
+    // }
+    console.log
+    (`During this trip I am travelling ${mph} mph with a mileage of ${mpg} mpg.
+    I will need ${gallonsNeeded} gallons for this trip. 
+    It is ${enoughBudget} that I have enough of a budget for this trip.
+    This trip will take ${tripTime} hours to complete.`)
+  }
